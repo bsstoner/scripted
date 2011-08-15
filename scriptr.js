@@ -9,6 +9,8 @@
 
     destroy: function(){
       clearTimeout(this.curTimeout);
+      this.fns = null;
+      this.steps = {};
     },
 
     init: function(){
@@ -75,8 +77,12 @@
         delete this.scripts[id];
       }
     },
-    register: function(id,ops){
-      this.scripts[id] = new _script(ops);
+    register: function(a,b){
+      if(!b && typeof a=="object"){
+        return new _script(a);
+      } else {
+        return this.scripts[id] = new _script(ops);
+      }
     },
     start: function(id){
       this.scripts[id] && this.scripts[id].start();

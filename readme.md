@@ -9,7 +9,7 @@
 
       // schedule functions to be run
 
-      scriptr.register("hello",{
+      var hello = scriptr.register({
         1000: function(){
           console.log("hello");
         },
@@ -20,13 +20,44 @@
 
       // start the script
 
-      scriptr.start("hello");
+      hello.start();
+
 
       // at any point you may want to stop it:
-      scriptr.stop("hello");
+
+      hello.stop();
+
 
       // and you can restart it again whenever:
+
+      hello.start();
+
+
+      // destroy if you don't want it any more:
+
+      hello.destroy();
+
+
+      // you can also register with an id, if you don't want to manage
+the objects yourself:
+
+      scriptr.register("hello",{
+        1000: function(){
+          console.log("hello");
+        },
+        2000: function(){
+          console.log("world");
+        }
+      });
+
+      // start/stop/destroy using scriptr:
+
       scriptr.start("hello");
+
+      scriptr.stop("hello");
+
+      scriptr.destroy("hello");
+
 
     </script>
 
