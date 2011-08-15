@@ -38,8 +38,7 @@
       hello.destroy();
 
 
-      // you can also register with an id, if you don't want to manage
-the objects yourself:
+      // you can also register with an id, if you don't want to manage the objects yourself:
 
       scriptr.register("hello",{
         1000: function(){
