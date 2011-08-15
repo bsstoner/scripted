@@ -10,6 +10,7 @@
     destroy: function(){
       clearTimeout(this.curTimeout);
       this.fns = null;
+      this.doneFn = null;
       this.steps = {};
     },
 
@@ -44,11 +45,17 @@
       }
 
       step.fn();
+
+      if(!nextFn){
+        this.doneFn && this.doneFn();
+      }
     },
 
-    start: function(){
+    start: function(fn){
       var self = this
         , step = this.fns[0];
+
+      this.doneFn = fn;
 
       this.curTimeout = setTimeout(function(){
         self.nextFn();
@@ -84,8 +91,8 @@
         return this.scripts[id] = new _script(ops);
       }
     },
-    start: function(id){
-      this.scripts[id] && this.scripts[id].start();
+    start: function(id,fn){
+      this.scripts[id] && this.scripts[id].start(fn);
     },
     stop: function(id){
       this.scripts[id] && this.scripts[id].stop();

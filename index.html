@@ -35,7 +35,10 @@
         })
 
         function startScript(){
-          scr.start();
+          scr.start(function(){
+            // recurse:
+            setTimeout(startScript,1000);
+          })
         }
 
         function stopScript(){
