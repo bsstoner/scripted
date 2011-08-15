@@ -66,11 +66,11 @@
     return (a.ms > b.ms) ? 1 : 0;
   }
 
-  var _scriptr = function(){
+  var _scripted = function(){
     this.scripts = {};
   };
 
-  _scriptr.prototype = {
+  _scripted.prototype = {
     destroy: function(id){
       if(this.scripts[id]){
         this.scripts[id].destroy();
@@ -92,7 +92,7 @@
     }
   }
 
-  return window.scriptr = new _scriptr();
+  return window.scripted = new _scripted();
 
 }(window)
 

@@ -1,15 +1,15 @@
-# scriptr.js
+# scripted.js
 
   tiny js lib for handling time-based scripted functionality
 
 ## Usage
 
-    <script src="scriptr.js"></script>
+    <script src="scripted.js"></script>
     <script>
 
       // schedule functions to be run
 
-      var hello = scriptr.register({
+      var hello = scripted.register({
         1000: function(){
           console.log("hello");
         },
@@ -40,7 +40,7 @@
 
       // you can also register with an id, if you don't want to manage the objects yourself:
 
-      scriptr.register("hello",{
+      scripted.register("hello",{
         1000: function(){
           console.log("hello");
         },
@@ -49,13 +49,13 @@
         }
       });
 
-      // start/stop/destroy using scriptr:
+      // start/stop/destroy using scripted:
 
-      scriptr.start("hello");
+      scripted.start("hello");
 
-      scriptr.stop("hello");
+      scripted.stop("hello");
 
-      scriptr.destroy("hello");
+      scripted.destroy("hello");
 
 
     </script>
