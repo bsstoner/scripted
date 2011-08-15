@@ -1,0 +1,61 @@
+<!doctype>
+<html>
+  <head>
+    <script src="scriptr.js"></script>
+    <script>
+
+      window.onload = function(){
+
+        var container = document.getElementById("container");
+
+        scriptr.register("hello",{
+          1: function(){
+            container.innerHTML = "";
+          },
+          1000: function(){
+            var hello = document.createElement("h1");
+            hello.textContent = "Hello";
+            container.appendChild(hello);
+          },
+          2000: function(){
+            var world = document.createElement("h1");
+            world.textContent = "World";
+            container.appendChild(world);
+          },
+          3000: function(){
+            var hello = document.createElement("h1");
+            hello.textContent = "Hello";
+            container.appendChild(hello);
+          },
+          4000: function(){
+            var world = document.createElement("h1");
+            world.textContent = "World";
+            container.appendChild(world);
+          }
+        })
+
+        function startScript(){
+          scriptr.start("hello");
+        }
+
+        function stopScript(){
+          scriptr.stop("hello");
+        }
+
+        var restartBtn = document.getElementById("restart");
+        restartBtn.addEventListener("click",startScript,false);
+
+        var stopBtn = document.getElementById("stop");
+        stopBtn.addEventListener("click",stopScript,false);
+
+        startScript();
+      }
+    </script>
+  </head>
+  <body>
+    <button id="stop">Stop Running</button>
+    <button id="restart">Restart</button>
+
+    <div id="container"></div>
+  </body>
+</html>
