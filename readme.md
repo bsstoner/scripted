@@ -1,6 +1,8 @@
 # scripted.js
 
-  tiny js lib for handling time-based scripted functionality
+  quick & dirty js lib for handling time-based scripted functionality
+  
+  NOTE: because of the single-threaded-ness of javascript and unavailability of a high precision timer, this won't be extremely precise, but is good enough for a lot of basic scheduling.
 
 ## Usage
 
